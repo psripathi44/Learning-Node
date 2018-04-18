@@ -1,6 +1,6 @@
-/* Using user defined event - emitter */
+/* Using Node's event emitter */
 
-var Emitter = require("./emitter");
+var Emitter = require("events");
 const readline = require('readline');
 
 var emtr = new Emitter();
@@ -19,7 +19,7 @@ const r1 = readline.createInterface({
 });
 
 r1.question('\nEnter a number, node will invoke odd/even method: ', (inp) => {
-    if(res % 2 == 0)
+    if(inp % 2 == 0)
         emtr.emit('greetEven');
     else
         emtr.emit('greetOdd');
